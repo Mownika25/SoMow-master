@@ -29,7 +29,7 @@
         android:layout_marginRight="84dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="password" />
+        android:hint="password(min 6 characters)" />
 
     <Button
         android:id="@+id/button"

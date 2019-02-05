@@ -54,7 +54,7 @@ public class registration extends AppCompatActivity {
                             startActivity(i);
                         }
                         else
-                            Toast.makeText(getApplicationContext(), "SUCCESSFULLY NOT REGISTERED", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "NOT REGISTERED", Toast.LENGTH_SHORT).show();
 
                     }
                 });
