@@ -22,7 +22,7 @@ public class login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.login);
         regis = findViewById(R.id.button);
         regis.setText("LOGIN");
         mAuth = FirebaseAuth.getInstance();
@@ -45,11 +45,11 @@ public class login extends AppCompatActivity {
                                                          if (task.isSuccessful()) {
                                                              Toast.makeText(getApplicationContext(), "SUCCESSFULLY LOGGED IN", Toast.LENGTH_SHORT).show();
 
-                                                             Intent i= new Intent (getApplicationContext(),DASHBOARD.class);
+                                                             Intent i= new Intent (getApplicationContext(),dashboard.class);
                                                              startActivity(i);
                                                          }
                                                          else
-                                                             Toast.makeText(getApplicationContext(), "SUCCESSFULLY NOT LOGGED IN", Toast.LENGTH_SHORT).show();
+                                                             Toast.makeText(getApplicationContext(), " NOT LOGGED IN", Toast.LENGTH_SHORT).show();
 
                                                      }
                                                  });

@@ -24,6 +24,10 @@
             android:label="new"/>
         <activity android:name=".myauctions"
             android:label="mine"/>
+        <activity android:name=".registration"
+            android:label="Registration"/>
+        <activity android:name=".login"
+            android:label="Login"/>
 
     </application>
 

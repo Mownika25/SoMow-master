@@ -11,22 +11,23 @@ import android.widget.EditText;
 import android.widget.ImageView;
 
 public class newauctions extends AppCompatActivity {
-Button camera,gallery,ok; //ok=upload,gallery==chose
-ImageView imageView;
-private Uri filepath;
-EditText timelimit,bidprice;
-private final int PICK_IMAGE_REQUEST = 71;
+    Button camera, gallery, ok; //ok=upload,gallery==chose
+    ImageView imageView;
+    private Uri filepath;
+    EditText timelimit, bidprice;
+    private final int PICK_IMAGE_REQUEST = 71;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.newauctions);
 
 
-        camera=findViewById(R.id.camera);
+       /* camera=findViewById(R.id.camera);
 
         gallery=findViewById(R.id.gallery);
         ok=findViewById(R.id.ok);
-        imageView=findViewById(R.id.imageView);
+        imageView=findViewById(R.id.imageview);
         timelimit=findViewById(R.id.timelimit);
         bidprice=findViewById(R.id.bidprice);
 
@@ -54,5 +55,6 @@ private final int PICK_IMAGE_REQUEST = 71;
             filepath=data.getData();
         }
     }
-
+*/
+    }
 }
