@@ -120,12 +120,21 @@ public class dashboard extends AppCompatActivity {
         });*/
 
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
+
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                Log.v("dashboard","here  also  :P");
                 Iterable<DataSnapshot> children = dataSnapshot.getChildren();
+
+                Log.v("dashboard","here 78  :P");
                 for(DataSnapshot child :children){
                     Iterable<DataSnapshot> ch = child.getChildren();
+
+                    Log.v("dashboard","here  90 :P");
                     for(DataSnapshot q :ch) {
+
+                        Log.v("dashboard","here  :P");
                        // String mUuid = q.getKey();
                        // if (mUuid.equals(uuid)) {             static uuid nhi h
                           //  String mBidName = q.child("name").getValue(String.class);
@@ -133,7 +142,7 @@ public class dashboard extends AppCompatActivity {
                             String timelimit = q.child("time").getValue(String.class);
                             String mCurrentPrice =q.child("price").getValue(String.class);
                            // String mStatus = q.child("status").getValue(String.class);
-
+Log.v("dashboard",mBidDes+"   "+mCurrentPrice+"   "+timelimit+"  :P");
                             ImageUpload temp = new ImageUpload(mBidDes,null,timelimit,mCurrentPrice);//uri or picture
                             imgs.add(temp);
 
