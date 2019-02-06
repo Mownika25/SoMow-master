@@ -2,13 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.somow">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="auction"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        android:theme="@style/AppTheme">
         >
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -17,19 +19,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".dashboard"
-            android:label="Dashboard"/>
-        <activity android:name=".auctionslive"
-            android:label="Description"/>
-        <activity android:name=".newauctions"
-            android:label="new"/>
-        <activity android:name=".myauctions"
-            android:label="mine"/>
-        <activity android:name=".registration"
-            android:label="Registration"/>
-        <activity android:name=".login"
-            android:label="Login"/>
-
+        <activity
+            android:name=".dashboard"
+            android:label="DASHBOARD" />
+        <activity
+            android:name=".auctionslive"
+            android:label="DESCRIPTION" />
+        <activity
+            android:name=".newauctions"
+            android:label="NEW AUCTION" />
+        <activity
+            android:name=".myauctions"
+            android:label="MINE" />
+        <activity
+            android:name=".registration"
+            android:label="REGISTRATION" />
+        <activity
+            android:name=".login"
+            android:label="LOGIN" />
+        <activity android:name=".ImageAdapter" />
+        <activity android:name=".history"></activity>
     </application>
 
 </manifest>

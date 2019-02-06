@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="Welcome to"
-            android:textSize="24sp" />
+            android:textSize="36sp" />
 
         <TextView
             android:layout_width="match_parent"
