@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#FF9BB899">
 
     <LinearLayout
         android:id="@+id/welcome_area"
@@ -9,21 +10,21 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical"
-        android:padding="16dp" >
+        android:padding="20dp" >
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Welcome to"
-            android:textSize="36sp" />
+            android:text="WELCOME TO "
+            android:textSize="30sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Auction System"
-            android:textSize="36sp" />
+            android:text=" THE AUCTION SYSTEM"
+            android:textSize="30sp" />
     </LinearLayout>
 
     <FrameLayout
@@ -37,22 +38,23 @@
         >
 
         <Button
-            android:id="@+id/signin"
+            android:id="@+id/login"
+            android:paddingTop="16sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="345dp"
-            android:text="sign in " />
+            android:text="log in " />
 
         <Button
-            android:id="@+id/login"
+            android:id="@+id/signin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="200dp"
-            android:text="log in" />
+            android:layout_marginBottom="150dp"
+            android:text="sign in" />
 
     </RelativeLayout>
 

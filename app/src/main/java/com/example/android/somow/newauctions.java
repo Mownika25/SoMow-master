@@ -50,7 +50,7 @@ public class newauctions extends AppCompatActivity {
         mStorageRef = FirebaseStorage.getInstance().getReference();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference(DATABASE_PATH);
 
-        camera=findViewById(R.id.camera);
+
 
         gallery=findViewById(R.id.gallery);
         ok=findViewById(R.id.ok);
@@ -73,7 +73,7 @@ public class newauctions extends AppCompatActivity {
             public void onClick(View view) {
                 //if there is a file to upload
                 if (uri != null) {
-                    Toast.makeText(getApplicationContext()," Image is selected",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext()," Image is selected....Pls wait",Toast.LENGTH_SHORT).show();
 
                     riversRef = mStorageRef.child(STORAGE_PATH+System.currentTimeMillis()+"." +getImg(uri));
                     Log.v("","here !!!");
@@ -95,9 +95,8 @@ public class newauctions extends AppCompatActivity {
                                     });
                                     //reference
                                     ImageUpload imageupload = new ImageUpload(description.getText().toString(),url,timelimit.getText().toString(),bidprice.getText().toString());
-                                    Toast.makeText(getApplicationContext(), "111 ", Toast.LENGTH_LONG).show();
+
                                     String uploadId =mDatabaseRef.push().getKey();
-                                    Toast.makeText(getApplicationContext(), "222 ", Toast.LENGTH_LONG).show();
 
                                     mDatabaseRef.child(uploadId).setValue(imageupload);
                                     //if the upload is successful

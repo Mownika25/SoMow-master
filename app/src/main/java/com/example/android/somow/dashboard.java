@@ -1,5 +1,6 @@
 package com.example.android.somow;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -16,6 +17,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ListView;
@@ -63,61 +65,8 @@ public class dashboard extends AppCompatActivity {
 
 
 
-       /* if(mchild==null) {
-            Log.v("DASHBOARD","in here :p");
-            mchild = new ChildEventListener() {
-                //  Log.v("DASHBOARD","over here :p");
-                @Override
-                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                    Log.v("DASHBOARD","here bro!! :p");
-                    ImageUpload friendlyMessage = dataSnapshot.getValue(ImageUpload.class);
-                    Log.v("DASHBOARD","DATA taken :p");
-                    imgs.add(friendlyMessage);
-                    Log.v("DASHBOARD","DATA dISPLAYED :p");
-                    ImageAdapter adapter= new ImageAdapter(getApplicationContext(),imgs);
-                    Log.v("DASHBOARD","DATA shown :p");
-                    // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the
-                    // {@link ListView} will display list items for each {@link Word} in the list.
-                    listView.setAdapter(adapter);
-                }
-                @Override
-                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                }
-                @Override
-                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-                }
-                @Override
-                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                }
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                }
-            };
-            mDatabaseRef.addChildEventListener(mchild);
-        }*/
 
-       /* mDatabaseRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                // Log.e("Count " ,""+snapshot.getChildrenCount());
-                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
-                    Log.v("DASHBOARD","DATA RETRIEVED :p");
-                    //ethu bilkul houni
-                    ImageUpload post = postSnapshot.getValue(ImageUpload.class);
-                    Log.v("DASHBOARD","DATA SHOWN :p");
-                    imgs.add(post);
-                }
-                ImageAdapter adapter= new ImageAdapter(getApplicationContext(),imgs);
-                // Make the {@link ListView} use the {@link WordAdapter} we created above, so that the
-                // {@link ListView} will  display list items for each {@link Word} in the list.
-                listView.setAdapter(adapter);
-                Log.v("DASHBOARD","DATA dISPLAYED :p");
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.w("TAG!!!", "Failed to read value.", databaseError.toException());
-            }
-        });*/
+
 
         mDatabaseRef.addValueEventListener(new ValueEventListener() {
 
@@ -142,7 +91,6 @@ public class dashboard extends AppCompatActivity {
                             String timelimit = q.child("time").getValue(String.class);
                             String mCurrentPrice =q.child("price").getValue(String.class);
                            // String mStatus = q.child("status").getValue(String.class);
-Log.v("dashboard",mBidDes+"   "+mCurrentPrice+"   "+timelimit+"  :P");
                             ImageUpload temp = new ImageUpload(mBidDes,null,timelimit,mCurrentPrice);//uri or picture
                             imgs.add(temp);
 
@@ -160,6 +108,13 @@ Log.v("dashboard",mBidDes+"   "+mCurrentPrice+"   "+timelimit+"  :P");
             }
         });
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent i7= new Intent(dashboard.this,auctionslive.class);
+                startActivity(i7);
+            }
+        });
        drawer = findViewById(R.id.drawer);
 
         NavigationView navigationView = findViewById(R.id.nav);
