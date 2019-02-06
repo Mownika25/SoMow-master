@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_new"
+        android:icon="@drawable/my_auction"
+        android:title="New auction"
+        />
+    <item android:id="@+id/action_mine"
+        android:icon="@drawable/new_auction"
+        android:title="My auctions"
+         />
+    <item android:id="@+id/action_history"
+        android:icon="@drawable/history"
+        android:title="History"
+         />
+</menu>
