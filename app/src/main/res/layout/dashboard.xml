@@ -21,24 +21,16 @@
         android:layout_height="wrap_content">
 
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/swipe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="---->swipe right for navigation drawer---->"
-                android:padding="15sp"
+                android:text="~~~~~>swipe right for navigation drawer~~~~~>"
+               <!- android:padding="15sp"
                 android:layout_alignParentBottom="true"
-                android:textSize="18dp"
-                />
-
-
-
-
-
-
-
-
-
+                android:layout_alignParentTop="true"
+                android:textSize="18dp"/>
+                -->
 
             <ListView
                 android:layout_width="match_parent"

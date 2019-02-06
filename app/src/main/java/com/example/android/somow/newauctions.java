@@ -1,6 +1,5 @@
 package com.example.android.somow;
 
-
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -10,6 +9,7 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
@@ -29,7 +29,7 @@ import java.io.IOException;
 
 public class newauctions extends AppCompatActivity {
     Button camera,gallery,ok; //ok=upload,gallery==chose
-    String url;
+    Uri url;
     ImageView imageView;
     private Uri uri;
     StorageReference riversRef;
@@ -47,7 +47,7 @@ public class newauctions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.newauctions);
 
-       mStorageRef = FirebaseStorage.getInstance().getReference();
+        mStorageRef = FirebaseStorage.getInstance().getReference();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference(DATABASE_PATH);
 
         camera=findViewById(R.id.camera);
@@ -57,7 +57,7 @@ public class newauctions extends AppCompatActivity {
         imageView=findViewById(R.id.imageview);
         timelimit=findViewById(R.id.timelimit);
         bidprice=findViewById(R.id.bidprice);
-        description=(EditText)findViewById(R.id.description);
+        description=(EditText)findViewById(R.id.descrption);
 
         gallery.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,28 +74,37 @@ public class newauctions extends AppCompatActivity {
                 //if there is a file to upload
                 if (uri != null) {
                     Toast.makeText(getApplicationContext()," Image is selected",Toast.LENGTH_SHORT).show();
+
                     riversRef = mStorageRef.child(STORAGE_PATH+System.currentTimeMillis()+"." +getImg(uri));
+                    Log.v("","here !!!");
                     riversRef.putFile(uri)
                             .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                                 @Override
                                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
+                                    Log.v("newacution","here also !!!");
                                     riversRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                         @Override
                                         public void onSuccess(Uri uri) {
                                             // Uri downloadUrl = uri;
-                                            url=uri.toString();
+                                            Log.v("newauction"," eithi !!!");
+
+                                            url=uri;
                                             // Toast.makeText(getBaseContext(), "Upload success! URL - " + downloadUrl.toString() , Toast.LENGTH_SHORT).show();
                                         }
                                     });
                                     //reference
-                                    ImageUpload imageupload = new ImageUpload(description.getText().toString(),uri,timelimit.getText().toString(),bidprice.getText().toString());
+                                    ImageUpload imageupload = new ImageUpload(description.getText().toString(),url,timelimit.getText().toString(),bidprice.getText().toString());
+                                    Toast.makeText(getApplicationContext(), "111 ", Toast.LENGTH_LONG).show();
                                     String uploadId =mDatabaseRef.push().getKey();
+                                    Toast.makeText(getApplicationContext(), "222 ", Toast.LENGTH_LONG).show();
+
                                     mDatabaseRef.child(uploadId).setValue(imageupload);
                                     //if the upload is successful
 
                                     //and displaying a success toast
                                     Toast.makeText(getApplicationContext(), "File Uploaded ", Toast.LENGTH_LONG).show();
+                                    finish();
 
                                 }
                             })
