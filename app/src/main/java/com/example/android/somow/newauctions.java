@@ -45,9 +45,9 @@ public class newauctions extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.newauctions);}}
+        setContentView(R.layout.newauctions);
 
-      /*  mStorageRef = FirebaseStorage.getInstance().getReference();
+       mStorageRef = FirebaseStorage.getInstance().getReference();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference(DATABASE_PATH);
 
         camera=findViewById(R.id.camera);
@@ -141,4 +141,3 @@ public class newauctions extends AppCompatActivity {
         }
     }
 }
-*/
